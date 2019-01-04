@@ -20,3 +20,14 @@ C:\Users\andre\Desktop\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp
 C:\Users\andre\Desktop\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.AssemblyInfo.cs
 C:\Users\andre\Desktop\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.dll
 C:\Users\andre\Desktop\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.pdb
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\bin\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.deps.json
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\bin\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.runtimeconfig.json
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\bin\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.runtimeconfig.dev.json
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\bin\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.dll
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\bin\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.pdb
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.csprojAssemblyReference.cache
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.csproj.CoreCompileInputs.cache
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.AssemblyInfoInputs.cache
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.AssemblyInfo.cs
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.dll
+C:\Users\andre\Documents\almostCompleteDVclockin\C#\CSDetermineOSAndBrowserASPNETCore\obj\Debug\netcoreapp1.1\CSDetermineOSAndBrowserASPNETCore.pdb
