@@ -124,7 +124,7 @@
         <input type="hidden" name="navigatorVendor" value="">
         <input type="hidden" name="dateTime" value="">
 
-        <input type="submit" value="Clock In/Clock out" />
+        <input type="submit" value="Clock In/Clock out" onclick="getLocation()" />
     </form>
 
 
@@ -137,13 +137,11 @@
 
 
 
-    <div class="row" asp-controller="Home" asp-action="About" method="POST">
-        <input type="text" name="personalIDnumber" placeholder="ID/passport number">
-        <button id="locationButton" type="submit" class="btn btn-default" onclick="getLocation()">Use Actual Location</button>
-    </div>
 
-    <script type="text/javascript">
+    <script>
+
         function getLocation() {
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(useLocation);
             }
@@ -151,8 +149,9 @@
 
         function useLocation(position) {
             window.location.replace('?longitude=' + position.coords.longitude + '&latitude=' + position.coords.latitude);
-            window.onsubmit.replace('? personalIDnumber = ' + document.getElementByName("personalIDnumber").toString() + "" + '')
         };
+
+
     </script>
 
 </body>

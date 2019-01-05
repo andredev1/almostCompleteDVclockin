@@ -10,6 +10,11 @@ using System.Data.SqlClient;
 using System.ComponentModel.DataAnnotations.Schema;
 using Geolocation;
 using System.Text;
+using Newtonsoft.Json;
+using System.Globalization;
+using System.Collections;
+using Microsoft.CodeAnalysis;
+using System.Net;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,10 +22,18 @@ namespace CSDetermineOSAndBrowserASPNETCore.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: /<controller>/
-        public  ActionResult Index(string userAgent,  string personalIDnumber, string latitude, string longitude, string osName, string osVersion, string browserName, string browserVersion, string navigatorUserAgent, string navigatorAppVersion, string navigatorPlatform, string navigatorVendor, string dateTime)
-        {
+       
 
+        
+
+    public class Customer
+    {
+        public string company_name { get; set; }
+        public string contact_name { get; set; }
+    }
+    public  ActionResult Index(string userAgent,  string personalIDnumber, string latitude, string longitude, string osName, string osVersion, string browserName, string browserVersion,  string dateTime)
+        {
+            
             if (string.IsNullOrEmpty(userAgent))
             {
                 userAgent = Request.Headers["User-Agent"];
@@ -36,14 +49,13 @@ namespace CSDetermineOSAndBrowserASPNETCore.Controllers
             osVersion = ua.OS.Version;
             osName = ua.OS.Name;
 
-            latitude = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
-            longitude = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
-
+            string ipAddress = Request.HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+            
             string ID = personalIDnumber;
             string connectionstring = "Server=tcp:dv-server1234567.database.windows.net,1433;Initial Catalog=DVchoc;Persist Security Info=False;User ID=andredev1234567;Password=Kooler1234567;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             SqlConnection connection = new SqlConnection(connectionstring);
             connection.Open();
-            SqlCommand com = new SqlCommand("insert into tbl_ClockIn(fld_firstName,fld_lastName,fld_personalIDnumber,fld_osName,fld_osVersion,fld_browserName,fld_browserVersion,fld_navigatorUserAgent,fld_navigatorAppVersion,fld_navigatorPlatform,fld_navigatorVendor,fld_latitube,fld_longitude,fld_dateTime) values('', '', '" + personalIDnumber + "', '" + osName + "', '" + osVersion + "', '" + browserName + "', '" + browserVersion + "', '" + navigatorUserAgent + "', '" + navigatorAppVersion + "', '" + navigatorPlatform + "', '" + navigatorVendor + "', '" + latitude + "', '" + longitude + "', '" + System.DateTime.Now + "'); ", connection);
+            SqlCommand com = new SqlCommand("insert into tbl_ClockIn(fld_firstName,fld_lastName,fld_personalIDnumber,fld_osName,fld_osVersion,fld_browserName,fld_browserVersion,fld_latitude,fld_longitude,fld_dateTime) values('', '', '" + personalIDnumber + "', '" + osName + "', '" + osVersion + "', '" + browserName + "', '" + browserVersion + "', '"+latitude+"', '" + longitude + "', '" + System.DateTime.Now + "'); ", connection);
             com.ExecuteScalar();
             
 
@@ -122,9 +134,15 @@ namespace CSDetermineOSAndBrowserASPNETCore.Controllers
             com = new SqlCommand("UPDATE tbl_ClockIn SET fld_firstName = 'ayanda', fld_lastName = 'cebeni' WHERE fld_personalIDnumber = '8912220865081';", connection);
             com.ExecuteScalar();
 
-            com = new SqlCommand("DELETE FROM tbl_ClockIn WHERE fld_personalIDnumber IS NULL;", connection);
+            com = new SqlCommand("UPDATE tbl_ClockIn SET [fld_longitude] = (SELECT  top 1 [fld_longitude] FROM[tbl_ClockIn] WHERE[fld_latitude] != '' ORDER BY[fld_dateTime] desc) WHERE[fld_longitude] = ''; ", connection);
             com.ExecuteScalar();
 
+            com = new SqlCommand("UPDATE tbl_ClockIn SET [fld_latitude] = (SELECT  top 1 [fld_latitude] FROM[tbl_ClockIn] WHERE[fld_latitude] != '' ORDER BY[fld_dateTime] desc) WHERE[fld_latitude] = ''; ", connection);
+            com.ExecuteScalar();
+
+            com = new SqlCommand("DELETE FROM tbl_ClockIn WHERE fld_personalIDnumber ='';", connection);
+            com.ExecuteScalar();
+           
 
 
             return View(ua);
