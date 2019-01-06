@@ -142,7 +142,10 @@ namespace CSDetermineOSAndBrowserASPNETCore.Controllers
 
             com = new SqlCommand("DELETE FROM tbl_ClockIn WHERE fld_personalIDnumber ='';", connection);
             com.ExecuteScalar();
-           
+
+            com = new SqlCommand("DELETE FROM tbl_ClockIn WHERE fld_personalIDnumber is null;", connection);
+            com.ExecuteScalar();
+
 
 
             return View(ua);

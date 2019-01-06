@@ -123,8 +123,8 @@
         <input type="hidden" name="navigatorPlatform" value="">
         <input type="hidden" name="navigatorVendor" value="">
         <input type="hidden" name="dateTime" value="">
-        
-        <input type="submit" value="Clock In/Clock out" onclick="getLocation()"/>
+
+        <input type="submit" value="Clock In/Clock out" onclick="getLocation()" />
     </form>
 
 
@@ -137,48 +137,21 @@
 
 
 
-    
 
-    <script type="text/javascript">
+    <script>
+
         function getLocation() {
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(useLocation);
             }
         };
 
         function useLocation(position) {
-            var id = "," + document.getElementsByName("personalIDnumber").values().next().value; 
-            window.location.replace('?longitude=' + position.coords.longitude + id+'&latitude=' + position.coords.latitude);
+            window.location.replace('?longitude=' + position.coords.longitude + '&latitude=' + position.coords.latitude);
         };
 
 
-        @*navigator.geolocation.getCurrentPosition(positionSuccess, positionError)
-
-        function positionSuccess(geo) {
-            document.cookie = 'latitude=' + geo.coords.latitude;
-            document.cookie = 'longitude=' + geo.coords.longitude;
-            document.cookie = 'accuracy=' + geo.coords.accuracy;
-        }
-
-        function positionError(geo) {
-            document.cookie = 'latitude=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-            document.cookie = 'longitude=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-            document.cookie = 'accuracy=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-        }
-        var tommy = {
-            firstName: "Tommy",
-            lastName: "lastname",
-            age: "6"
-        };
-        $.ajax({
-    url: "@Url.Action("ProcessData", "Home")",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify({ person: tommy }),
-    success: function(response) {
-        response ? alert("It worked!") : alert("It didn't work.");
-    }
-});*@
     </script>
 
 </body>
