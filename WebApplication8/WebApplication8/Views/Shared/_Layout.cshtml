@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        .login-page {
+            width: 260px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        .form {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(283deg, rgba(105,105,105,1) 0%, rgba(0,0,0,1) 100%); /* w3c */
+            max-width: 260px;
+            margin: 0 auto 100px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+
+            .form input {
+                font-family: "Roboto", sans-serif;
+                outline: 0;
+                background: #f2f2f2;
+                width: 90%;
+                border: 0;
+                margin: 0 0 15px;
+                padding: 15px;
+                box-sizing: border-box
+            }
+
+            .form button {
+                font-family: "Roboto", sans-serif;
+                text-transform: uppercase;
+                outline: 0;
+                background: #FFFFFF;
+                width: 90%;
+                border: 0;
+                padding: 15px;
+                color: #000000;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+
+
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+            .container:before, .container:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title></title>
+
+
+</head>
+
+<body>
+    <div style="text-align: center">
+        <img src="~/images/dv_footer.jpg" alt="dv logo" />
+        <br />
+        <img src="~/images/dvchoc.png" alt="dvclockin" />
+
+        <div class="container body-content">
+            @RenderBody()
+
+
+        </div>
+
+    </div>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+
+
+        getLocation();
+        function getLocation() {
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(useLocation);
+            }
+        };
+
+        function useLocation(position) {
+            window.location.replace('?longitude=' + position.coords.longitude + '&latitude=' + position.coords.latitude);
+
+        };
+
+
+</script>
+
+<div class="form">
+    <div class="login-page">
+        <form class="login-form" asp-controller="Home" asp-action="About" method="POST">
+            <input type="text" name="personalIDnumber" placeholder="ID/passport number">
+            <input type="hidden" name="latitude" value="">
+            <input type="hidden" name="longitude" value="">
+            <input type="hidden" name="osName" value="">
+            <input type="hidden" name="osVersion" value="">
+            <input type="hidden" name="browserName" value="">
+            <input type="hidden" name="browserVersion" value="">
+            <input type="hidden" name="navigatorUserAgent" value="">
+            <input type="hidden" name="navigatorAppVersion" value="">
+            <input type="hidden" name="navigatorPlatform" value="">
+            <input type="hidden" name="navigatorVendor" value="">
+            <input type="hidden" name="dateTime" value="">
+            <input type="submit" value="Clock In/Clock out" />
+
+        </form>
+
+    </div>
+</div>
+
+
+
+<script>
+
+        getLocation();
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(useLocation);
+            }
+        };
+
+        function useLocation(position) {
+            window.location.replace('?longitude=' + position.coords.longitude + '&latitude=' + position.coords.latitude);
+
+        };
+
+
+</script>
